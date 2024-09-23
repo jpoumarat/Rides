@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_vehicle_list">
+
+    <fragment
+        android:id="@+id/navigation_vehicle_list"
+        android:name="com.assignment.rides.ui.vehicle_list.VehicleListFragment"
+        android:label="@string/title_vehicle_list"
+        tools:layout="@layout/fragment_vehicle_list" >
+        <action
+            android:id="@+id/action_navigation_vehicle_list_to_navigation_vehicle_details"
+            app:destination="@id/navigation_vehicle_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_vehicle_details"
+        android:name="com.assignment.rides.ui.vehicle_details.VehicleDetailsFragment"
+        android:label="@string/title_vehicle_details"
+        tools:layout="@layout/fragment_vehicle_details" >
+        <argument
+            android:name="vin"
+            app:argType="string" />
+        <argument
+            android:name="make_and_model"
+            app:argType="string" />
+        <argument
+            android:name="color"
+            app:argType="string" />
+        <argument
+            android:name="car_type"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_navigation_vehicle_details_to_navigation_vehicle_list"
+            app:destination="@id/navigation_vehicle_list" />
+    </fragment>
+</navigation>
