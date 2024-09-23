@@ -5,39 +5,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.vehicle_list.VehicleListFragment">
-    <EditText
-        android:id="@+id/vehicle_etxt"
+<!--    <EditText-->
+<!--        android:id="@+id/vehicle_etxt"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:ems="10"-->
+<!--        android:inputType="numberDecimal"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/send_imgb"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toStartOf="@+id/send_imgb"
+        app:errorEnabled="true"
+        app:errorTextColor="#F44336"
+        app:layout_constraintEnd_toStartOf="@+id/imgbSend"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etxtVehicle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <ImageButton
-        android:id="@+id/send_imgb"
+        android:id="@+id/imgbSend"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        app:layout_constraintBottom_toBottomOf="@+id/vehicle_etxt"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/swipeRefreshLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/vehicle_etxt"
-        app:layout_constraintTop_toTopOf="@+id/vehicle_etxt"
+        app:layout_constraintStart_toEndOf="@+id/text_input_layout"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_arrow_forward_24" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/vehicle_rcv"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vehicle_etxt" />
+        app:layout_constraintTop_toBottomOf="@+id/text_input_layout">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvVehicle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_input_layout" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

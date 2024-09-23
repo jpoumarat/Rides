@@ -16,29 +16,21 @@ class VehicleAdapter(private val dataSet: List<Vehicle>) : RecyclerView.Adapter<
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val twmakemodel: TextView
         val twvin: TextView
-//        private var onClickListener: View.OnClickListener? = null
-
 
         init {
-            // Define click listener for the ViewHolder's View
             twmakemodel = view.findViewById(R.id.twRowMakeModel)
             twvin = view.findViewById(R.id.twRowVin)
         }
     }
 
-    // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
-        // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.vehicle_row_item, viewGroup, false)
         return ViewHolder(view)
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
-        // Get element from your dataset at this position and replace the
-        // contents of the view with that element
 
         viewHolder.twmakemodel.text = dataSet[position].make_and_model
         viewHolder.twvin.text = dataSet[position].vin
@@ -47,12 +39,8 @@ class VehicleAdapter(private val dataSet: List<Vehicle>) : RecyclerView.Adapter<
 
     fun goToVehicleDetails(context: Context, position: Int) {
         context as AppCompatActivity
-//        val bundle = bundleOf("vin" to dataSet[position].vin,
-//                                    "make_and_model" to dataSet[position].make_and_model,
-//                                    "color" to dataSet[position].color,
-//                                    "car_type" to dataSet[position].car_type)
         val action = VehicleListFragmentDirections.actionNavigationVehicleListToNavigationVehicleDetails(dataSet[position].vin, dataSet[position].make_and_model,
-            dataSet[position].color, dataSet[position].car_type)
+            dataSet[position].color, dataSet[position].car_type, dataSet[position].kilometrage)
         val navHostFragment = context.supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
         val navController = navHostFragment.navController
         navController.navigate(action)

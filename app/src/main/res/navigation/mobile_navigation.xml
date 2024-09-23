@@ -32,6 +32,9 @@
         <argument
             android:name="car_type"
             app:argType="string" />
+        <argument
+            android:name="kilometrage"
+            app:argType="string" />
         <action
             android:id="@+id/action_navigation_vehicle_details_to_navigation_vehicle_list"
             app:destination="@id/navigation_vehicle_list" />

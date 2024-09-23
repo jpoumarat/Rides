@@ -13,7 +13,7 @@ data class Vehicle(
     val car_options: ArrayList<String>,
     val specs: ArrayList<String>,
     val doors: Int,
-    val mileage: Int,
-    val kilometrage: Int,
+    val mileage: String,
+    val kilometrage: String,
     val license_plate: String
 )
