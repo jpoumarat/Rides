@@ -3,4 +3,5 @@
     <string name="title_vehicle_list">Vehicle List</string>
     <string name="title_vehicle_details">Vehicle Details</string>
     <string name="title_notifications">Notifications</string>
+    <string name="edittexterror">Please put a value between 1 and 100</string>
 </resources>
